@@ -3,6 +3,12 @@ package com.interviewbit;
 import java.util.ArrayList;
 
 //Worked on interviewBit. Need to test the input again.
+/**
+ * Not working needs to improve on this.
+ * 
+ * @author Jayaram
+ *
+ */
 public class SetZerosIn2DArray {
 
 	public static void main(String aa[]) {
