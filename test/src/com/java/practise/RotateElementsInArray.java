@@ -26,6 +26,33 @@ public class RotateElementsInArray {
 		System.out.println(Arrays.equals(arf, ar));
 		System.out.println(Arrays.toString(ar));
 
+		secondWayToRotateElementsOfArray(ar, 2);
+		System.out.println("After rotating");
+		System.out.println(Arrays.toString(ar));
+	}
+
+	/**
+	 * Rotate Numbers in an array by K elements by reversing.
+	 * 
+	 * @param ar
+	 * @param k
+	 */
+	public static void secondWayToRotateElementsOfArray(int[] ar, int k) {
+		reverse(ar, 0, ar.length - 1);
+		reverse(ar, 0, k - 1);
+		reverse(ar, k, ar.length - 1);
+	}
+
+	private static void reverse(int[] ar, int start, int end) {
+		int ii = start;
+		int jj = end;
+		while (ii < jj) {
+			int temp = ar[ii];
+			ar[ii] = ar[jj];
+			ar[jj] = temp;
+			ii++;
+			jj--;
+		}
 	}
 
 	/**
