@@ -32,7 +32,9 @@ public class RotateElementsInArray {
 	}
 
 	/**
-	 * Rotate Numbers in an array by K elements by reversing.
+	 * Rotate Numbers in an array by K elements by reversing. The
+	 * Collections.rotate() uses this type of approach for a non trivial inputs.
+	 * For large array input size, better to use the Juggling Method.
 	 * 
 	 * @param ar
 	 * @param k
