@@ -49,15 +49,15 @@ public class LevelOrderTraversal {
 	}
 }
 
-class Node implements Comparable<Node>{
+/*class Node implements Comparable<TreeToDoublyLinkedList>{
 	int val;
-	Node next;
-	/*@Override
+	TreeToDoublyLinkedList next;
+	@Override
 	public int compareTo(Object o) {
 		Node oo=(Node)o;
-	}*/
+	}
 	@Override
-	public int compareTo(Node o) {
+	public int compareTo(TreeToDoublyLinkedList o) {
 		return Integer.valueOf(val).compareTo(Integer.valueOf(o.val));
 	}
-}
+}*/
