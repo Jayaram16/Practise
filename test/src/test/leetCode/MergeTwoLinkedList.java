@@ -5,6 +5,9 @@ import test.linkedList.ListNode;
 /**
  * Definition for singly-linked list. public class ListNode { int val; ListNode
  * next; ListNode(int x) { val = x; } }
+ * 
+ * 
+ * Another way in which i solved is given in test.linkedList.SortList.java
  */
 
 public class MergeTwoLinkedList {
@@ -101,4 +104,9 @@ public class MergeTwoLinkedList {
 		}
 		return top;
 	}
+	
+	
+	
+	
+	
 }

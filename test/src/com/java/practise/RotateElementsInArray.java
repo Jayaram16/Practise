@@ -59,13 +59,15 @@ public class RotateElementsInArray {
 
 	/**
 	 * GCD part is very important as it indicates for all values.
-	 * 
+	 *Complexity is O(n) time O(1) space
 	 * @param ar
 	 * @param k
 	 * @return
 	 */
 	public static int[] rotateElementsInArray(int[] ar, int k) {
 		int n = ar.length;
+		String a="";
+		
 		int i = 0;
 		int gcdNumber = gcd(n, k);
 
