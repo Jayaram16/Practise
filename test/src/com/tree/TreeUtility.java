@@ -12,4 +12,18 @@ public class TreeUtility {
 		root.right.left.left = new TreeNode(110);
 		return root;
 	}
+	
+	
+	public TreeNode createTreeNode2(){	
+		TreeNode root = new TreeNode(40);
+		root.left = new TreeNode(20);
+		root.right = new TreeNode(60);
+		root.left.left = new TreeNode(10);
+		root.left.right = new TreeNode(30);
+		root.left.right.left = new TreeNode(5);
+		root.right.left = new TreeNode(50);
+		root.right.right = new TreeNode(70);
+		root.right.left.right = new TreeNode(55);
+		return root;
+	}
 }
