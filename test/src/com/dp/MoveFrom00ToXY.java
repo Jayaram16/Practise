@@ -61,7 +61,7 @@ public class MoveFrom00ToXY {
 	}
 
 	boolean isValid(int x, int y) {
-		if ((x == 1 && y == 2) | (x == 3 && y == 2)) {
+		if ((x == 1 && y == 2) | (x == 2 && y == 3)) {
 			return false;
 		}
 		return true;
