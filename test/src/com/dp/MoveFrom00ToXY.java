@@ -20,7 +20,6 @@ import java.util.List;
  *
  */
 public class MoveFrom00ToXY {
-	// This is the static class
 	 class Points {
 		int x, y;
 
@@ -62,7 +61,7 @@ public class MoveFrom00ToXY {
 	}
 
 	boolean isValid(int x, int y) {
-		if ((x == 1 && y == 2) | (x == 2 && y == 3)) {
+		if ((x == 1 && y == 2) | (x == 3 && y == 2)) {
 			return false;
 		}
 		return true;
