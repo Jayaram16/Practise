@@ -13,8 +13,14 @@ public class TreeUtility {
 		return root;
 	}
 	
-	
-	public TreeNode createTreeNode2(){	
+	/**
+	 * 						40
+	 * 				20		 		60
+	 * 			10		30 		50		70
+	 * 				  5			   55
+	 * @return
+	 */
+	public static TreeNode createTreeNode2(){	
 		TreeNode root = new TreeNode(40);
 		root.left = new TreeNode(20);
 		root.right = new TreeNode(60);
