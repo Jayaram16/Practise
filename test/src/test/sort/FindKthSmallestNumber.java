@@ -4,13 +4,17 @@ public class FindKthSmallestNumber {
 	static QuickSort qs = new QuickSort();
 
 	/**
-	 * Using QuickSelect Approach
+	 * Given an array and a number k where k is smaller than size of array, we
+	 * need to find the k’th smallest element in the given array. It is given
+	 * that ll array elements are distinct. Using QuickSelect Approach. In case
+	 * of finding the median, use middle element if number of elements are odd.
+	 * If even, then find 2 middle elements and then get the average of it.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		int a[] = { 1, 3, 12, 67, 73, 02 };
-		System.out.println(findKthSmallestNumber(a, 0, a.length - 1, 7));
+		System.out.println(findKthSmallestNumber(a, 0, a.length - 1, 4));
 	}
 
 	/**
