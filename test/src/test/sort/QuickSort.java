@@ -10,15 +10,15 @@ public class QuickSort {
 		QuickSort qs = new QuickSort();
 		qs.generateRandomArray();
 		System.out.println(Arrays.toString(qs.theArray).toString());
-		long before= System.currentTimeMillis();
+		long before = System.currentTimeMillis();
 		qs.quickSort(0, qs.theArray.length - 1);
-		long after= System.currentTimeMillis();
+		long after = System.currentTimeMillis();
 		System.out.println(Arrays.toString(qs.theArray).toString());
-		System.out.println("Time taken in QuickSort in milliseconds "+(after-before));
+		System.out.println("Time taken in QuickSort in milliseconds " + (after - before));
 	}
 
 	private void quickSort(int first, int last) {
-		if (first <last) {
+		if (first < last) {
 			int pivot = theArray[last];
 			int p = partition(first, last, pivot);
 			quickSort(first, p - 1);
@@ -63,6 +63,20 @@ public class QuickSort {
 			theArray[i] = (int) (Math.random() * 50) + 10;
 
 		}
+	}
+
+	/**
+	 * 
+	 * @param a
+	 * @param first
+	 * @param last
+	 * @param pivot
+	 * @return
+	 */
+	public int partition(int a[], int first, int last, int pivot) {
+		theArray = a;
+
+		return partition(first, last, pivot);
 	}
 
 }
