@@ -15,14 +15,18 @@ public class RemoveDuplicates {
 		displayNode(n);
 	}
 
-	private static void displayNode(Node n) {
+	public static void displayNode(Node n) {
+	System.out.println();
 		while(n!=null){
 			System.out.print(n.getValue()+"-->");
 			n=n.getNext();
 		}
 		
 	}
-
+/**
+ * This approach uses a non sorted List. For a sorted List check the RemoveDuplicatesInSortedList.java
+ * @param n
+ */
 	private static void removeDuplicates(Node n) {
 		Node firstNode = n;
 		Node fastRunner = n.getNext();
@@ -42,7 +46,7 @@ public class RemoveDuplicates {
 
 	}
 
-	private static void createNodeList(Node node) {
+	public static void createNodeList(Node node) {
 		node.setNext(new Node(5));
 		node.getNext().setNext(new Node(5));
 		node.getNext().getNext().setNext(new Node(12));
