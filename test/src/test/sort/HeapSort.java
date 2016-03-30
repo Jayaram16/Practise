@@ -31,18 +31,28 @@ public class HeapSort {
 		for (int level = a.length / 2; level >= 0; level--) {
 			heapify(a, level, total);
 		}
-		for(int i=total;i>=0;i--){
-			int temp=a[i];
-			a[i]=a[0];
-			a[0]=temp;
-			heapify(a,0,i-1);
+		// The above line just heapifies first time. The heapify will return us
+		// with the root as the max value.
+		// But in order to do the sorting, we do the below.
+		// We will swap the root with the last element and do the heapify.
+		// This will set the last node as the maximum node. and remaining nodes
+		// will be ordered.
+		// This heapify process takes place again and again and each time the
+		// first node is replaced with the last node while reducing the size of
+		// the array.
+		for (int i = total; i >= 0; i--) {
+			int temp = a[i];
+			a[i] = a[0];
+			a[0] = temp;
+			heapify(a, 0, i - 1);
 		}
 
 	}
 
 	/*
 	 * This method is used to percolate down the values to arrange in the
-	 * heapsort
+	 * heapsort. This method is basically max heapify as the root of the heap is
+	 * greater than its children.
 	 */
 	private void heapify(int a[], int level, int total) {
 		int left = 2 * level + 1;

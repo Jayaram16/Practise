@@ -2,6 +2,15 @@ package crackCodingInterview;
 
 import test.linkedList.ListNode;
 
+/**
+ * Following works. But try using another approach where check each element with
+ * the pivot. Any element less than the pivot should be moved to list1. Any
+ * element greater than pivot should be moved to list2. Then simply merge the
+ * two lists together.
+ * 
+ * @author Jayaram
+ *
+ */
 public class PartitionLinkedListAroundPivot {
 
 	public static void main(String[] args) {
