@@ -3,7 +3,15 @@ package com.interviewbit;
 import java.util.Arrays;
 import java.util.Random;
 
-//TODO :The max product of consecutive elements in an array
+/**
+ * This is an important question asked by various interviewers. Concept is
+ * simple. keep track of local minima and compare it to global maxima when sum
+ * value is greater than previous sum values.
+ * 
+ * @author Jayaram
+ *
+ */
+// TODO :The max product of consecutive elements in an array
 public class MaximumSubArray {
 
 	public static void main(String[] args) {
@@ -13,7 +21,7 @@ public class MaximumSubArray {
 
 		MaximumSubArray maxObj = new MaximumSubArray();
 		System.out.println("Max Value is " + maxObj.maxSubArray(array));
-		System.out.println("Max Value is " +maxObj.maxSubArrayUsingShorterCode(array));
+		System.out.println("Max Value is " + maxObj.maxSubArrayUsingShorterCode(array));
 		System.out.println("Max Value is " + maxObj.maxSumArrayNSquare(array));
 	}
 
@@ -26,30 +34,31 @@ public class MaximumSubArray {
 		// the array.
 		// max holds the global maximum.
 
-		//The indexing options have been found from the url: http://www.programcreek.com/2013/02/leetcode-maximum-subarray-java/
-		int begin = 0, end = 0;
+		// The indexing options have been found from the url:
+		// http://www.programcreek.com/2013/02/leetcode-maximum-subarray-java/
+		int globalStart = 0, globalEnd = 0;
 
 		for (int i = 1; i < array.length; i++) {
-			int newBegin = begin;
-			int newEnd = end;
+			int localStart = globalStart;
+			int localEnd = globalEnd;
 
 			if (array[i] > val + array[i]) {
 				val = array[i];
-				newBegin = i;
-				newEnd = i;
+				localStart = i;
+				localEnd = i;
 			} else {
 				val = val + array[i];
-				newEnd = i;
+				localEnd = i;
 			}
 			if (max < val) {
 				max = val;
-				begin = newBegin;
-				end = newEnd;
+				globalStart = localStart;
+				globalEnd = localEnd;
 			}
 
 		}
-		System.out.println("The start is " + begin);
-		System.out.println("The end is " + end);
+		System.out.println("The start is " + globalStart);
+		System.out.println("The end is " + globalEnd);
 		// System.out.println("Start is " + start+1);
 		return max;
 	}
@@ -61,7 +70,7 @@ public class MaximumSubArray {
 		// the array.
 		// max holds the global maximum.
 		// int start = 0;
-		int begin = 0, end = 0;
+		
 
 		for (int i = 1; i < array.length; i++) {
 			val = Math.max(val + array[i], array[i]);
@@ -70,6 +79,16 @@ public class MaximumSubArray {
 		return max;
 	}
 
+	/**
+	 * 
+	 * 
+	 * The inner loop will add the the values from i to n Outer loop will slowly
+	 * decrease the i value till n. Inside the inner for loop, the array value
+	 * is added. Remember to reset the value to 0 .
+	 * 
+	 * @param array
+	 * @return
+	 */
 	// Using O(n^2)
 	private int maxSumArrayNSquare(int[] array) {
 		int max = 0;
