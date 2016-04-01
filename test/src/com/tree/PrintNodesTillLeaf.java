@@ -12,6 +12,8 @@ import java.util.List;
  * tree in java Read more at
  * http://www.java2blog.com/2014/08/print-all-paths-from-root-to-leaf-in.html
  * 
+ * Also there is a method which prints the sum of all nodes till the leaf nodes.
+ * 
  * @author Jayaram
  *
  */
@@ -22,13 +24,23 @@ public class PrintNodesTillLeaf {
 	 */
 	public static void main(String[] args) {
 		TreeNode root = TreeUtility.createTreeNode2();
-		
-		  TreeNode a[] = new TreeNode[10]; new
-		  PrintNodesTillLeaf().printRootToLeaf(root, a, 0);
-		 
+
+		TreeNode a[] = new TreeNode[10];
+
+		PrintNodesTillLeaf obj = new PrintNodesTillLeaf();
+		obj.printRootToLeafUsingIntegerArray(root, a, 0);
+
+		System.out.println("--------********--------------");
+		System.out.println("Now an approach to add the sum till the leaf nodes");
+		obj.computeSumOfBranches(root, 0);
+		System.out.println("--------********--------------");
+
+		System.out.println("Printing using recursion on a list");
 		// Recursion using List
 		List<TreeNode> list = new ArrayList<TreeNode>();
-		new PrintNodesTillLeaf().printRootToLeaf(root, list);
+		obj.printRootToLeafUsingListInRecursion(root, list);
+		System.out.println("Hence you can see this approach does not work");
+
 	}
 
 	/**
@@ -39,8 +51,41 @@ public class PrintNodesTillLeaf {
 	 * @param list
 	 * @param len
 	 */
+	public void printRootToLeafUsingIntegerArray(TreeNode root, TreeNode[] list, int len) {
+		if (root == null) {
+			return;
+		}
+		list[len++] = root;
+		if (root.left == null && root.right == null) {
+			printArray(list, len);
+			return;
+		}
+		printRootToLeafUsingIntegerArray(root.left, list, len);
+		printRootToLeafUsingIntegerArray(root.right, list, len);
+	}
 
-	public void printRootToLeaf(TreeNode root, List<TreeNode> list) {
+	/**
+	 * Helper method for the printRootToLeafUsingIntegerArray.
+	 * 
+	 * @param list
+	 * @param len
+	 */
+	private void printArray(TreeNode[] list, int len) {
+		/* for (TreeNode node : list) { */
+		for (int i = 0; i < len; i++) {
+			System.out.print(list[i].val + "->");
+		}
+		System.out.println();
+	}
+
+	/**
+	 * This approach does not help us in getting the list. This is because in a
+	 * recursion stack, the list gets added and previous values are not removed.
+	 * 
+	 * @param root
+	 * @param list
+	 */
+	public void printRootToLeafUsingListInRecursion(TreeNode root, List<TreeNode> list) {
 		if (root == null) {
 			return;
 		}
@@ -49,13 +94,15 @@ public class PrintNodesTillLeaf {
 			printList(list);
 			return;
 		}
-		printRootToLeaf(root.left, list);
-		printRootToLeaf(root.right, list);
+		printRootToLeafUsingListInRecursion(root.left, list);
+		printRootToLeafUsingListInRecursion(root.right, list);
 	}
 
 	/**
-	 * Used for iteration using List
-	 * This will not be useful as we are using List and List is stored in heap. 
+	 * Used for iteration using List This will not be useful as we are using
+	 * List and List is stored in heap. Helper method for the
+	 * printRootToLeafUsingListInRecursion.
+	 * 
 	 * @param list
 	 */
 	private void printList(List<TreeNode> list) {
@@ -65,26 +112,26 @@ public class PrintNodesTillLeaf {
 		System.out.println();
 	}
 
-	public void printRootToLeaf(TreeNode root, TreeNode[] list, int len) {
+	/**
+	 * This method will compute the sum of all the node up till the leaf nodes.
+	 * 
+	 * @param root
+	 * @param sum
+	 */
+	public void computeSumOfBranches(TreeNode root, int sum) {
 		if (root == null) {
 			return;
 		}
-		/* list.add(root); */
-		list[len++] = root;
 		if (root.left == null && root.right == null) {
-			printArray(list, len);
-			return;
+			// If you don't want to print, you can add it to a global list.
+			System.out.println(sum + root.val);
 		}
-		printRootToLeaf(root.left, list, len);
-		printRootToLeaf(root.right, list, len);
-	}
-
-	private void printArray(TreeNode[] list, int len) {
-		/* for (TreeNode node : list) { */
-		for (int i = 0; i < len; i++) {
-			System.out.print(list[i].val + "->");
+		if (root.left != null) {
+			computeSumOfBranches(root.left, sum + root.val);
 		}
-		System.out.println();
+		if (root.right != null) {
+			computeSumOfBranches(root.right, sum + root.val);
+		}
 	}
 
 }
