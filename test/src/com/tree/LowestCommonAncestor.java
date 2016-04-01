@@ -21,6 +21,11 @@ public class LowestCommonAncestor {
 		} else {
 			System.out.println("\nThe ancestor value is " + leastCommonNode.val);
 		}
+
+		System.out.println("Binary Tree LCA using approach in Cracking the Coding Interview");
+
+		TreeNode lcaNode = obj.lowestCommonAncestorBTUsingCTCI(root, val1, val2);
+		System.out.println(lcaNode.val);
 	}
 
 	// This assumes that val1 and val2 are always present in the tree.
@@ -73,9 +78,11 @@ public class LowestCommonAncestor {
 		return vector1.get(counter - 1);
 	}
 
-	// Used to find the node along with the path.
-	// Basically when going, the value is entered into the vector whereas if any
-	// false value is encountered, the value is removed from the vector.
+	/**
+	 * Used to find the node along with the path. Basically when going, the
+	 * value is entered into the vector whereas if any false value is
+	 * encountered, the value is removed from the vector.
+	 */
 	private boolean searchTreePath(TreeNode root, int val, Vector<TreeNode> vector) {
 
 		if (root == null) {
@@ -91,6 +98,48 @@ public class LowestCommonAncestor {
 				return false;
 			}
 		}
+
+	}
+
+	/**
+	 * This is the best and easiest approach that I can understand.
+	 * 
+	 * @param root
+	 * @param val1
+	 * @param val2
+	 * @return Lowest Common Ancestor node
+	 */
+	private TreeNode lowestCommonAncestorBTUsingCTCI(TreeNode root, int val1, int val2) {
+
+		boolean node1IsLeft = covers(root.left, val1);
+		boolean node2IsLeft = covers(root.left, val2);
+
+		if (node1IsLeft != node2IsLeft) {
+			return root;
+		}
+		if (node1IsLeft) {
+			return lowestCommonAncestorBTUsingCTCI(root.left, val1, val2);
+		} else {
+			return lowestCommonAncestorBTUsingCTCI(root.right, val1, val2);
+		}
+	}
+
+	/**
+	 * This is the helper method for lowestCommonAncestorBTUsingCTCI(). This is
+	 * basically used to search a given a node.
+	 * 
+	 * @param root
+	 * @param val
+	 * @return
+	 */
+	private boolean covers(TreeNode root, int val) {
+		if (root == null) {
+			return false;
+		}
+		if (root.val == val) {
+			return true;
+		}
+		return (covers(root.left, val) || covers(root.right, val));
 
 	}
 
