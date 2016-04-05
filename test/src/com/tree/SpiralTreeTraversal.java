@@ -18,7 +18,7 @@ import java.util.Stack;
 public class SpiralTreeTraversal {
 
 	public static void main(String[] args) {
-		TreeNode root = new TreeUtility().createTreeNode2();
+		TreeNode root = TreeUtility.createTreeNode2();
 		traverseSpirally(root);
 	}
 

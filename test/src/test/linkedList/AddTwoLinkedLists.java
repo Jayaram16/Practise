@@ -22,6 +22,8 @@ public class AddTwoLinkedLists {
 
 		ListNode head3 = addToLinkedList(head1, head2);
 		NodeUtility.displayList(head3);
+		System.out.println();
+		System.out.println(head3.val);
 
 	}
 

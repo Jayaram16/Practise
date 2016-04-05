@@ -32,4 +32,19 @@ public class TreeUtility {
 		root.right.left.right = new TreeNode(55);
 		return root;
 	}
+	/**
+	 * 					
+	 * 				60
+	 * 			50		70
+	 * 			   55
+	 * @return
+	 */
+	public static TreeNode createSubTreeNodeOf2(){	
+		TreeNode root = new TreeNode(60);
+		root.left = new TreeNode(50);
+		root.right = new TreeNode(70);
+		root.left.right = new TreeNode(55);
+		return root;
+	}
+	
 }

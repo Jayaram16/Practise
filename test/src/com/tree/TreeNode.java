@@ -12,4 +12,8 @@ public class TreeNode {
 	public TreeNode(int val) {
 		this.val = val;
 	}
+	
+	public String toString(){
+		return " "+ this.val;
+	}
 }

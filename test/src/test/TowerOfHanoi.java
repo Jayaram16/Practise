@@ -1,5 +1,11 @@
 package test;
-
+/**
+ * http://www.tutorialspoint.com/data_structures_algorithms/tower_of_hanoi.htm
+ * 
+ * 
+ * @author Jayaram
+ *
+ */
 public class TowerOfHanoi {
 
 	public static void main(String[] args) {

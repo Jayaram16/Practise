@@ -72,11 +72,11 @@ public class FlattenTreeToList {
             \
              6
               from 
-                  1
-        / \
-       2   5
-      / \   \
-     3   4   6
+                     1
+			        / \
+			       2   5
+			      / \   \
+			     3   4   6
 	 * 
 	 * @param root
 	 */

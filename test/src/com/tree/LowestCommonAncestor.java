@@ -11,6 +11,7 @@ public class LowestCommonAncestor {
 		int val2 = 175;
 		// No need to arrange in val1 > val2
 		LowestCommonAncestor obj = new LowestCommonAncestor();
+		System.out.println("Using BST approach");
 		TreeNode node = obj.lowestCommonAncestorAsBST(root, val2, val1);
 		System.out.println("The ancestor val is " + node.val);
 

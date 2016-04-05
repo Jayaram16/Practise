@@ -21,13 +21,13 @@ public class TreeTraversal {
 		obj.traversePostOrder(root);
 		System.out.println("\nPre Order Traversal using loops");
 		obj.traversePreOrderUsingLoop(root);
-		
+
 		System.out.println("\nIn Order Traversal using loops");
 		obj.traverseInOrderUsingLoop(root);
-		
+
 		System.out.println("\nPost Order Traversal using loops");
 		obj.postorderTraversalUsingIterativeApproach(root);
-		
+
 	}
 
 	private void traverseInOrder(TreeNode node) {
@@ -100,7 +100,7 @@ public class TreeTraversal {
 					stack.push(curr.right);
 				} else {
 					stack.pop();
-					System.out.print(curr.val+"-->");
+					System.out.print(curr.val + "-->");
 					lst.add(curr.val);
 				}
 
@@ -113,7 +113,7 @@ public class TreeTraversal {
 					stack.push(curr.right);
 				} else {
 					stack.pop();
-					System.out.print(curr.val+"-->");
+					System.out.print(curr.val + "-->");
 					lst.add(curr.val);
 				}
 
@@ -122,7 +122,7 @@ public class TreeTraversal {
 				// pop stack.
 			} else if (curr.right == prev) {
 				stack.pop();
-				System.out.print(curr.val+"-->");
+				System.out.print(curr.val + "-->");
 				lst.add(curr.val);
 			}
 
@@ -134,34 +134,46 @@ public class TreeTraversal {
 
 	/**
 	 * Traverse the Tree in InOrder Sequence.
+	 * 
 	 * @param root
 	 */
 	public void traverseInOrderUsingLoop(TreeNode root) {
 		Stack<TreeNode> stack = new Stack<TreeNode>();
 		if (root != null) {
-		//	stack.push(root);
+			// stack.push(root);
 		}
 		TreeNode p = root;
-		  while(!stack.empty() || p != null){
-			  
-	            // if it is not null, push to stack
-	            //and go down the tree to left
-	            if(p != null){
-	                stack.push(p);
-	                p = p.left;
-	 
-	            // if no left child
-	            // pop stack, process the node
-	            // then let p point to the right
-	            }else{
-	                TreeNode t = stack.pop();
-	               System.out.print(t.val+" -> ");
-	              //  lst.add(t.val);
-	                p = t.right;
-	            }
-	        }
+		while (!stack.empty() || p != null) {
+
+			// if it is not null, push to stack
+			// and go down the tree to left
+			if (p != null) {
+				stack.push(p);
+				p = p.left;
+
+				// if no left child
+				// pop stack, process the node
+				// then let p point to the right
+			} else {
+				TreeNode t = stack.pop();
+				System.out.print(t.val + " -> ");
+				// lst.add(t.val);
+				p = t.right;
+			}
+		}
 	}
 
+	/**
+	 * 
+	 * 						  100
+	 * 				50					150
+	 * 			25		75		  	125		175
+	 * 					   		110
+	 * 
+	 * 
+	 * 
+	 * @return
+	 */
 	public TreeNode createTreeNode() {
 		TreeNode root = new TreeNode(100);
 		root.left = new TreeNode(50);
