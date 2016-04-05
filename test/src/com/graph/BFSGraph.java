@@ -35,25 +35,33 @@ public class BFSGraph {
 
 		while (!queue.isEmpty()) {
 			GraphNode n = queue.poll();
-			System.out.print(n.val+" ");
+
+			System.out.print(n.val + " ");
 
 			for (GraphNode m : n.neighbors) {
-				if (!checkVisited(m)) {
+				if (!m.isVisited) {
 					queue.add(m);
+					m.isVisited = true;
 				}
+				/*
+				 * if (!checkVisited(m)) {
+				 * 
+				 * }
+				 */
 			}
 
 		}
 	}
 
+	
+	@SuppressWarnings("unused")
 	private boolean checkVisited(GraphNode m) {
-		if (isVisited.contains(m)) {
-			return true;
-		} else {
-			isVisited.add(m);
-			return false;
-		}
+		/*
+		 * if (isVisited.contains(m)) { return true; } else { isVisited.add(m);
+		 * return false; }
+		 */
+
+		return m.isVisited;
 	}
 
 }
-

@@ -6,7 +6,12 @@ import java.util.List;
 public class GraphUtility {
 
 	/**
-	 * 1-----3---- |\ | | \ | | 2-----4 5---+ | +------6--+
+	 * 1-----3----
+	 * |\  		 |
+	 * |  \		 |
+	 * |   2-----4
+	 * 5---+	 |
+	 * +------6--+
 	 */
 	public static GraphNode getGraph() {
 		GraphNode one = new GraphNode(1);
@@ -53,9 +58,18 @@ public class GraphUtility {
 	}
 }
 
+/**
+ * We can add a new boolean flag isVisited or not. which will check whether a
+ * given node is visited or not.
+ * 
+ * @author Jayaram
+ *
+ */
 class GraphNode {
+
 	int val;
 	List<GraphNode> neighbors;
+	boolean isVisited;
 
 	GraphNode(int val) {
 		this.val = val;
