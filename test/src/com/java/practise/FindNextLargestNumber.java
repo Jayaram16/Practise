@@ -56,6 +56,15 @@ public class FindNextLargestNumber {
 		return a;
 	}
 
+	/**
+	 * Utility method which finds the next biggest number. 1) Start from extreme
+	 * right.Go left till there is a number less than the right number.
+	 * 2)Now from that point till the end of right, find the just largest of the turn.
+	 * 3) Swap that just number with the turning number.
+	 * 4) Sort the number to the right of the just numbers in ascending order.
+	 * 
+	 * @param num
+	 */
 	public static void getNextGreatestNumber(int[] num) {
 		int n = num.length;
 		int i = n - 1;

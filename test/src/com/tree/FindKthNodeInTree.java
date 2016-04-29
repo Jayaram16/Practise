@@ -7,12 +7,12 @@ public class FindKthNodeInTree {
 
 	public static void main(String[] args) {
 		TreeNode node = TreeUtility.createTreeNode2();
-		System.out.println("The value is " + inOrderKthSearch(node, 3));
+		System.out.println("The value is " + inOrderKthSearch(node, 7));
 		System.out.println("The value is " + inOrderKthSearchUsingIteration(node, 4));
 	}
 
 	/**
-	 * Using Recursion Not working
+	 * Using Recursion 
 	 * 
 	 * @param node
 	 * @param k
@@ -21,20 +21,21 @@ public class FindKthNodeInTree {
 	public static int inOrderKthSearch(TreeNode node, int k) {
 		if (node == null) {
 			return -1;
-		} else {
+		}
+		else {
 			int val = inOrderKthSearch(node.left, k);
 
 			count++;
-
-			if (count == k) {
-				return node.val;
-			}
-			val = inOrderKthSearch(node.right, k);
 			if (val != -1) {
 				return val;
 			}
+			if (count == k) {
+				return node.val;
+			}
+			return inOrderKthSearch(node.right, k);
+
+			
 		}
-		return -1;
 	}
 
 	/**

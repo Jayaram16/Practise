@@ -1,9 +1,22 @@
 package test.leetCode;
 
+/**
+ * There are N children standing in a line. Each child is assigned a rating
+ * value. You are giving candies to these children subjected to the following
+ * requirements:
+ * 
+ * 1. Each child must have at least one candy. 2. Children with a higher rating
+ * get more candies than their neighbors.
+ * 
+ * What is the minimum candies you must give?
+ * 
+ * @author Jayaram
+ *
+ */
 public class CandyDistribution {
 
 	public static void main(String[] args) {
-		/*int ratings[] = { 4, 2, 1 };*/
+		/* int ratings[] = { 4, 2, 1 }; */
 		int ratings[] = { 1, 2, 10 };
 		System.out.println(new CandyDistribution().getNumberOfCandies(ratings));
 	}
